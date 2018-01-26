@@ -491,7 +491,7 @@ function getClientSettings() {
         client_id: 'amzn1.application-oa2-client.a9e64c41743f4d14813be90d8f38cf9f',
         redirect_uri: 'https://saschaabraham.github.io/auth-callback',
         post_logout_redirect_uri: 'https://saschaabraham.github.io/',
-        response_type: 'id_token token',
+        response_type: 'token',
         scope: 'profile',
         filterProtocolClaims: true,
         loadUserInfo: true,
