@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>PillenboxKonfigurator</title>
@@ -8,42 +9,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-    <div id="amazon-root"></div>
-    <script type="text/javascript">
-    
-      window.onAmazonLoginReady = function() {
-        amazon.Login.setClientId('amzn1.application-oa2-client.a9e64c41743f4d14813be90d8f38cf9f');
-      };
-      (function(d) {
-        var a = d.createElement('script'); a.type = 'text/javascript';
-        a.async = true; a.id = 'amazon-login-sdk';
-        a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
-        d.getElementById('amazon-root').appendChild(a);
-      })(document);
-    
-    </script>
+  <div id="amazon-root"></div>
+  <script type="text/javascript">
 
-    <a href="#" id="LoginWithAmazon">
-        <img border="0" alt="Login with Amazon"
-          src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
-          width="156" height="32" />
-      </a>
-      <script type="text/javascript">
+    window.onAmazonLoginReady = function () {
+      amazon.Login.setClientId('amzn1.application-oa2-client.a9e64c41743f4d14813be90d8f38cf9f');
+    };
+    (function (d) {
+      var a = d.createElement('script'); a.type = 'text/javascript';
+      a.async = true; a.id = 'amazon-login-sdk';
+      a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+      d.getElementById('amazon-root').appendChild(a);
+    })(document);
 
-        document.getElementById('LoginWithAmazon').onclick = function() {
-          options = { scope : 'profile' };
-          amazon.Login.authorize(options, 'https://saschaabraham.github.io');
-          return false;
-        };
-      
-      </script>
-      <a id="Logout">Logout</a>
-      <script type="text/javascript">
-        document.getElementById('Logout').onclick = function() {
-          amazon.Login.logout();
-      };
-      </script>
+  </script>
+
+  <a href="#" id="LoginWithAmazon">
+    <img border="0" alt="Login with Amazon" src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+      width="156" height="32" />
+  </a>
+  <script type="text/javascript">
+
+    document.getElementById('LoginWithAmazon').onclick = function () {
+      options = { scope: 'profile' };
+      //amazon.Login.authorize(options, 'https://saschaabraham.github.io');
+      amazon.Login.authorize(options, function (response) {
+        if (response.error) {
+          // USER NOT LOGGED IN
+          alert("verifyLoggedIn() - SESSION NOT ACTIVE - " + new Date());
+        } else {
+          // USER IS LOGGED IN
+          alert("verifyLoggedIn() - SESSION ACTIVE - " + new Date());
+          // optionally, get the profile info
+          alert('access_token= ' + response.access_token);
+
+          amazon.Login.retrieveProfile(function (response) {
+            // Display profile information.
+            alert('CustomerId= ' + response.profile.CustomerId);
+            alert('Name= ' + response.profile.Name);
+            alert('PostalCode= ' + response.profile.PostalCode);
+            alert('PrimaryEmail= ' + response.profile.PrimaryEmail);
+          });
+        }
+      });
+
+      return false;
+    };
+
+  </script>
+  <a button id="Logout">Logout</a>
+  <script type="text/javascript">
+    document.getElementById('Logout').onclick = function () {
+      amazon.Login.logout();
+    };
+  </script>
   <app-root></app-root>
 <script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+
 </html>
