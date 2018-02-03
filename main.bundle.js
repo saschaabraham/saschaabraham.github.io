@@ -179,7 +179,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_7__amazonservices__["a" /* Amazonservices */]
             ],
-            providers: [],
+            providers: [__WEBPACK_IMPORTED_MODULE_7__amazonservices__["a" /* Amazonservices */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
