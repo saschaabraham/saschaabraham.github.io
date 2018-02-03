@@ -64,7 +64,7 @@ var AppComponent = /** @class */ (function () {
         this.myClientId = 'amzn1.application-oa2-client.a9e64c41743f4d14813be90d8f38cf9f';
     }
     AppComponent.prototype.onAmazonAuthResponse = function (event) {
-        console.log(event.authRequest.access_token);
+        console.log(event);
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
