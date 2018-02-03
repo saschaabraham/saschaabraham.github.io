@@ -43,7 +43,6 @@ var Amazonservices = /** @class */ (function () {
     Amazonservices.prototype.getUserProfile = function (accesstoken) {
         var httpOptions = {
             headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({
-                'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + accesstoken
             })
         };
@@ -113,10 +112,13 @@ var AppComponent = /** @class */ (function () {
         this.myClientId = 'amzn1.application-oa2-client.a9e64c41743f4d14813be90d8f38cf9f';
     }
     AppComponent.prototype.onAmazonAuthResponse = function (event) {
+        var _this = this;
         if (event.authRequest.error === undefined) {
             console.log(event);
-            var userProfile = this.amService.getUserProfile(event.authRequest.access_token);
-            this.userName = userProfile['name'];
+            this.amService.getUserProfile(event.authRequest.access_token).subscribe(function (data) {
+                console.log(data);
+                _this.userName = data['name'];
+            }, function (err) { return console.log(err); });
         }
     };
     AppComponent = __decorate([
