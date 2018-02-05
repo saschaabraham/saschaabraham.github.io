@@ -87,7 +87,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">{{ title }}</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\" routerLinkActive=\"active\">\n        <a [routerLink]=\"['/home']\" [queryParamsHandling]=\"true\">Home</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <a [routerLink]=\"['/edit']\" [queryParamsHandling]=\"true\">Medikamenteneinstellungen</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n\n\n\n\n<amazon-login [clientId]=\"myClientId\" (amazonAuthResponse)=\"onAmazonAuthResponse($event)\">\n</amazon-login>\n\n<div class=\"container\">\n\n  <div class=\"row\">\n    <router-outlet></router-outlet>\n  </div>\n\n\n\n</div>"
+module.exports = "<amazon-login [clientId]=\"myClientId\" (amazonAuthResponse)=\"onAmazonAuthResponse($event)\">\n</amazon-login>\n\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">{{ title }}</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\" routerLinkActive=\"active\">\n        <a [routerLink]=\"['/home']\" [queryParamsHandling]=\"true\">Home</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <a [routerLink]=\"['/edit']\" [queryParamsHandling]=\"true\">Medikamenteneinstellungen</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n\n\n\n\n\n<div class=\"container\">\n\n  <div class=\"row\">\n    <router-outlet></router-outlet>\n  </div>\n\n\n\n</div>"
 
 /***/ }),
 
@@ -333,7 +333,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align:center\">\n  <h3>Willkommen {{userName }}</h3>\n</div>"
+module.exports = "<div style=\"text-align:center\">\n  <h3>Willkommen {{AMS.userName }}</h3>\n</div>"
 
 /***/ }),
 
@@ -362,8 +362,7 @@ var HomeComponent = /** @class */ (function () {
     function HomeComponent(route, amService) {
         this.route = route;
         this.amService = amService;
-        this.userName = 'None';
-        this.userName = amService.userName;
+        this.AMS = amService;
     }
     HomeComponent.prototype.ngOnInit = function () {
         this.route.params.subscribe(function (p) {
