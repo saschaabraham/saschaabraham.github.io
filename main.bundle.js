@@ -39,21 +39,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var Amazonservices = /** @class */ (function () {
     function Amazonservices(http) {
         this.http = http;
-        this.userName = 'Nicht angemeldet';
-        this.loggedin = false;
     }
     Amazonservices.prototype.getUserProfile = function (accesstoken) {
-        var _this = this;
         var httpOptions = {
             headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({
                 'Authorization': 'Bearer ' + accesstoken
             })
         };
-        this.http.get('https://api.amazon.com/user/profile', httpOptions).subscribe(function (data) {
-            console.log(data);
-            _this.userName = data['name'];
-            _this.loggedin = true;
-        }, function (err) { return console.log(err); });
+        return this.http.get('https://api.amazon.com/user/profile', httpOptions);
     };
     Amazonservices = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
@@ -87,7 +80,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<amazon-login [clientId]=\"myClientId\" (amazonAuthResponse)=\"onAmazonAuthResponse($event)\">\n</amazon-login>\n\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">{{ title }}</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\" routerLinkActive=\"active\">\n        <a [routerLink]=\"['/home']\" [queryParamsHandling]=\"true\">Home</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <a [routerLink]=\"['/edit']\" [queryParamsHandling]=\"true\">Medikamenteneinstellungen</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n\n\n\n\n\n<div class=\"container\">\n\n  <div class=\"row\">\n    <router-outlet></router-outlet>\n  </div>\n\n\n\n</div>"
+module.exports = "<amazon-login [clientId]=\"myClientId\" (amazonAuthResponse)=\"onAmazonAuthResponse($event)\">\n</amazon-login>\n\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\">{{ title }} - Willkommen {{ userName }}</a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <li class=\"active\" routerLinkActive=\"active\">\n        <a [routerLink]=\"['/home']\" [queryParamsHandling]=\"true\">Home</a>\n      </li>\n      <li routerLinkActive=\"active\">\n        <a [routerLink]=\"['/edit']\" [queryParamsHandling]=\"true\">Medikamenteneinstellungen</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n\n\n\n\n\n<div class=\"container\">\n\n  <div class=\"row\">\n    <router-outlet></router-outlet>\n  </div>\n\n\n\n</div>"
 
 /***/ }),
 
@@ -120,6 +113,8 @@ var AppComponent = /** @class */ (function () {
         this.title = 'Pillenbox-Konfigurator';
         this.showWaitInfo = false;
         this.myClientId = 'amzn1.application-oa2-client.a9e64c41743f4d14813be90d8f38cf9f';
+        this.userName = 'Nicht angemeldet';
+        this.loggedin = false;
         router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_2__angular_router__["e" /* NavigationStart */]) {
                 _this.showWaitInfo = true;
@@ -135,9 +130,14 @@ var AppComponent = /** @class */ (function () {
         this.router.navigate(['/home']);
     };
     AppComponent.prototype.onAmazonAuthResponse = function (event) {
+        var _this = this;
         if (event.authRequest.error === undefined) {
             console.log(event);
-            this.amService.getUserProfile(event.authRequest.access_token);
+            this.amService.getUserProfile(event.authRequest.access_token).subscribe(function (data) {
+                console.log(data);
+                _this.userName = data['name'];
+                _this.loggedin = true;
+            }, function (err) { return console.log(err); });
         }
     };
     AppComponent = __decorate([
@@ -333,7 +333,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align:center\">\n  <h3>Willkommen {{AMS.userName }}</h3>\n</div>"
+module.exports = "<div style=\"text-align:center\">\n  <h3>Home ist aktiv</h3>\n</div>"
 
 /***/ }),
 
