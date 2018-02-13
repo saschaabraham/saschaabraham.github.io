@@ -143,16 +143,19 @@ var AppComponent = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export MyMaterialModule */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_amazon_login__ = __webpack_require__("../../../../angular-amazon-login/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_amazon_login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular_amazon_login__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__amazonservices__ = __webpack_require__("../../../../../src/app/amazonservices.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_cdk_table__ = __webpack_require__("../../../cdk/esm5/table.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_cdk_overlay__ = __webpack_require__("../../../cdk/esm5/overlay.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular_amazon_login__ = __webpack_require__("../../../../angular-amazon-login/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular_amazon_login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular_amazon_login__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__amazonservices__ = __webpack_require__("../../../../../src/app/amazonservices.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -167,26 +170,71 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+var MyMaterialModule = /** @class */ (function () {
+    function MyMaterialModule() {
+    }
+    MyMaterialModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
+            exports: [
+                // CDk
+                __WEBPACK_IMPORTED_MODULE_3__angular_cdk_table__["m" /* CdkTableModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_cdk_overlay__["e" /* OverlayModule */],
+                // Material
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["a" /* MatAutocompleteModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MatButtonToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["d" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["e" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["f" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["g" /* MatDatepickerModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["h" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["i" /* MatExpansionModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["j" /* MatGridListModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["k" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["l" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["m" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["n" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["q" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["r" /* MatProgressSpinnerModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["s" /* MatRadioModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["t" /* MatRippleModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["u" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["v" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["w" /* MatSlideToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["x" /* MatSliderModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["y" /* MatSnackBarModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["A" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["B" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["C" /* MatTooltipModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["o" /* MatNativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["z" /* MatSortModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["p" /* MatPaginatorModule */]
+            ]
+        })
+    ], MyMaterialModule);
+    return MyMaterialModule;
+}());
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_3_angular_amazon_login__["AmazonLoginComponent"]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_7_angular_amazon_login__["AmazonLoginComponent"]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_material__["a" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_material__["b" /* MatCheckboxModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_material__["c" /* MatMenu */]
+                __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
+                MyMaterialModule
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_6__amazonservices__["a" /* Amazonservices */],
+            providers: [__WEBPACK_IMPORTED_MODULE_8__amazonservices__["a" /* Amazonservices */],
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
